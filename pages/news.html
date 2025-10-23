@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,44 +11,57 @@
     <div class="page-container">
         <header class="header">
             <h1>Новости</h1>
+            <button class="header__theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                🌙
+            </button>
         </header>
         
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
         
         <main class="content">
-            <section class="news-container">
+            <section class="news">
                 <h2 class="section-title">Последние новости</h2>
                 
-                <article class="news-card">
-                    <h3 class="news-title">Обновление гардероба</h3>
-                    <div class="news-meta">
+                <article class="news__card">
+                    <h3 class="news__card-title">Обновление гардероба</h3>
+                    <div class="news__card-meta">
                         <small>14.09.2025 21:42 | Автор: М.Д. Золотов</small>
                     </div>
-                    <p class="news-text">Я купил новые кеды</p>
+                    <p class="news__card-text">Я купил новые кеды</p>
                 </article>
                 
-                <article class="news-card">
-                    <h3 class="news-title">Вкусная вкусность</h3>
-                    <div class="news-meta">
+                <article class="news__card">
+                    <h3 class="news__card-title">Вкусная вкусность</h3>
+                    <div class="news__card-meta">
                         <small>10.09.2025 13:37 | Автор: М.Д. Золотов</small>
                     </div>
-                    <p class="news-text">Позавчера мною была съедена шаурма по адресу: гор. Москва, ул.Туристская 27.</p>
+                    <p class="news__card-text">Позавчера мною была съедена шаурма по адресу: гор. Москва, ул.Туристская 27.</p>
                 </article>
                 
-                <article class="news-card">
-                    <h3 class="news-title">Праздник</h3>
-                    <div class="news-meta">
+                <article class="news__card">
+                    <h3 class="news__card-title">Праздник</h3>
+                    <div class="news__card-meta">
                         <small>01.01.2025 00:00 | Автор: М.Д. Золотов</small>
                     </div>
-                    <p class="news-text">С новым годом!!</p>
+                    <p class="news__card-text">С новым годом!!</p>
                 </article>
             </section>
         </main>
@@ -57,5 +70,24 @@
             <p>&copy; 2025 Мой сайт-портфолио. Все права защищены.</p>
         </footer>
     </div>
+
+    <script>
+        // Переключение темы
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    </script>
 </body>
 </html>

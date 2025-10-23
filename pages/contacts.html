@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,57 +15,60 @@
 
     dialog {
         border: none;
-        border-radius: 12px;
+        border-radius: var(--border-radius-lg);
         padding: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-lg);
         animation: slideIn 0.3s ease;
         max-width: 500px;
         width: 90vw;
         max-height: 90vh;
         overflow-y: auto;
+        background: var(--color-background);
     }
     .modal-header {
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
         color: white;
-        padding: 1.5rem;
-        border-radius: 12px 12px 0 0;
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
         margin: 0;
     }
     .modal-header h2 {
         margin: 0;
         color: white;
-        font-size: 1.5rem;
+        font-size: var(--font-size-xl);
     }
     .modal-content {
-        padding: 2rem;
+        padding: var(--spacing-xxl);
     }
     .form-group {
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--spacing-lg);
     }
     .form-group label {
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: var(--spacing-xs);
         font-weight: 600;
-        color: #2c3e50;
+        color: var(--color-secondary);
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
         width: 100%;
-        padding: 0.75rem;
-        border: 2px solid #e9ecef;
-        border-radius: 6px;
-        font-size: 1rem;
-        transition: border-color 0.3s ease;
+        padding: var(--spacing-md);
+        border: 2px solid var(--color-border);
+        border-radius: var(--border-radius-sm);
+        font-size: var(--font-size-base);
+        transition: border-color var(--transition-base);
         box-sizing: border-box;
+        background: var(--color-background);
+        color: var(--color-text);
     }
 
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
         outline: none;
-        border-color: #667eea;
+        border-color: var(--color-primary);
     }
 
     .form-group textarea {
@@ -75,23 +78,23 @@
 
     .modal-actions {
         display: flex;
-        gap: 1rem;
+        gap: var(--spacing-md);
         justify-content: flex-end;
-        margin-top: 2rem;
+        margin-top: var(--spacing-xxl);
     }
 
     .btn {
-        padding: 0.75rem 1.5rem;
+        padding: var(--spacing-md) var(--spacing-lg);
         border: none;
-        border-radius: 6px;
+        border-radius: var(--border-radius-sm);
         cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s ease;
+        font-size: var(--font-size-base);
+        transition: all var(--transition-base);
         font-weight: 600;
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
         color: white;
     }
 
@@ -101,17 +104,17 @@
     }
 
     .btn-secondary {
-        background: #f8f9fa;
-        color: #2c3e50;
-        border: 2px solid #e9ecef;
+        background: var(--color-background-alt);
+        color: var(--color-secondary);
+        border: 2px solid var(--color-border);
     }
 
     .btn-secondary:hover {
-        background: #e9ecef;
+        background: var(--color-border);
     }
 
     .required {
-        color: #e74c3c;
+        color: var(--color-accent);
     }
 
     @keyframes fadeIn {
@@ -133,7 +136,7 @@
     /* Адаптивность */
     @media (max-width: 600px) {
         dialog {
-            margin: 1rem;
+            margin: var(--spacing-md);
             width: calc(100vw - 2rem);
         }
 
@@ -151,49 +154,61 @@
     <div class="page-container">
         <header class="header">
             <h1>Контакты</h1>
+            <button class="header__theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                🌙
+            </button>
         </header>
         
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
         
         <main class="content">
-            <section class="contacts-container">
+            <section class="contacts">
                 <h2 class="section-title">Наши контакты</h2>
                 
-                <article class="contact-info">
+                <article class="contacts__info">
                     <h3>Электронная почта</h3>
                     <p>Адрес электронной почты: zolotovMax@mail.com</p>
                 </article>
                 
-                <article class="contact-info">
+                <article class="contacts__info">
                     <h3>Физический адрес</h3>
                     <p>Адрес: гор. Москва, ул. Пушкина, д. Колотушкина</p>
                 </article>
                 
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <h3>Телефон</h3>
-                        <p>+7 (495) 123-45-67</p>
+                <div class="contacts__grid">
+                    <div class="contacts__item">
+                        <h3 class="contacts__item-title">Телефон</h3>
+                        <p class="contacts__item-value">+7 (495) 123-45-67</p>
                     </div>
-                    <div class="contact-item">
-                        <h3>Время работы</h3>
-                        <p>Пн-Пт: 9:00-18:00</p>
+                    <div class="contacts__item">
+                        <h3 class="contacts__item-title">Время работы</h3>
+                        <p class="contacts__item-value">Пн-Пт: 9:00-18:00</p>
                     </div>
-                    <div class="contact-item">
-                        <h3>Социальные сети</h3>
-                        <p>VK, Telegram, WhatsApp</p>
+                    <div class="contacts__item">
+                        <h3 class="contacts__item-title">Социальные сети</h3>
+                        <p class="contacts__item-value">VK, Telegram, WhatsApp</p>
                     </div>
                 </div>
                 
-                <!-- Измененная кнопка для открытия модального окна -->
-                <button class="contact-button" onclick="contactModal.showModal()">Связаться с нами</button>
+                <button class="contacts__button" onclick="contactModal.showModal()">Связаться с нами</button>
             </section>
         </main>
         
@@ -239,9 +254,7 @@
                     </div>
 
                     <div class="modal-actions">
-                        <!-- ИСПРАВЛЕННАЯ кнопка отмены -->
                         <button type="button" class="btn btn-secondary" onclick="closeModal()">Отмена</button>
-                        <!-- Кнопка отправки с обработкой через JavaScript -->
                         <button type="button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
                     </div>
                 </form>
@@ -257,20 +270,18 @@
         // Функция для закрытия модального окна
         function closeModal() {
             contactModal.close();
-            form.reset(); // Очищаем форму при отмене
+            form.reset();
         }
 
         // Функция для отправки формы
         function submitForm() {
             const formData = new FormData(form);
 
-            // Простая валидация
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
 
-            // Собираем данные формы
             const data = {
                 name: formData.get('name'),
                 phone: formData.get('phone'),
@@ -279,13 +290,8 @@
                 message: formData.get('message')
             };
 
-            // В реальном приложении здесь был бы AJAX-запрос
             console.log('Данные формы:', data);
-
-            // Показываем уведомление об успешной отправке
             alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
-
-            // Закрываем модальное окно
             closeModal();
         }
 
@@ -296,17 +302,34 @@
             }
         });
 
-        // Обработка отправки формы через Enter (предотвращаем стандартное поведение)
+        // Обработка отправки формы через Enter
         form.addEventListener('keypress', function(event) {
             if (event.key === 'Enter' && event.target.type !== 'textarea') {
                 event.preventDefault();
             }
         });
 
-        // Закрытие по ESC (встроенная функция dialog)
+        // Закрытие по ESC
         contactModal.addEventListener('cancel', function() {
             closeModal();
         });
+
+        // Переключение темы
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
     </script>
 </body>
 </html>

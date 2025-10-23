@@ -1,5 +1,5 @@
- <!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,40 +11,58 @@
     <div class="page-container">
         <header class="header">
             <h1>Практические занятия</h1>
+            <button class="header__theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                🌙
+            </button>
         </header>
         
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
         
         <main class="content">
-            <section class="practices-container">
+            <section class="practices">
                 <h2 class="section-title">Мои практические работы</h2>
                 
-                <article class="practice-card">
-                    <h3 class="practice-title">Практика 1: Основы HTML</h3>
-                    <p class="practice-desc">Создание базовой структуры сайта</p>
+                <article class="practices__card">
+                    <h3 class="practices__card-title">Практика 1: Основы HTML</h3>
+                    <p class="practices__card-desc">Создание базовой структуры сайта</p>
                 </article>
                 
-                <article class="practice-card">
-                    <h3 class="practice-title">Практика 2: Основы CSS</h3>
-                    <p class="practice-desc">Стилизация элементов сайта</p>
+                <article class="practices__card">
+                    <h3 class="practices__card-title">Практика 2: Основы CSS</h3>
+                    <p class="practices__card-desc">Стилизация элементов сайта</p>
                 </article>
 
-                <article class="practice-card">
-                    <h3 class="practice-title">Практика 9: Семантические теги, Flex и Grid</h3>
-                    <p class="practice-desc">Преобразование семантики проекта и упрощение вёрстки</p>
+                <article class="practices__card">
+                    <h3 class="practices__card-title">Практика 9: Семантические теги, Flex и Grid</h3>
+                    <p class="practices__card-desc">Преобразование семантики проекта и упрощение вёрстки</p>
                 </article>
 
-                <article class="practice-card">
-                    <h3 class="practice-title">Практика 10: Разработка форм и модальных окон</h3>
-                    <p class="practice-desc">Создание интерактивных форм и модальных окон</p>
+                <article class="practices__card">
+                    <h3 class="practices__card-title">Практика 10: Разработка форм и модальных окон</h3>
+                    <p class="practices__card-desc">Создание интерактивных форм и модальных окон</p>
+                </article>
+
+                <article class="practices__card">
+                    <h3 class="practices__card-title">Практика 11: БЭМ, переменные и состояния в CSS</h3>
+                    <p class="practices__card-desc">Рефакторинг проекта по методологии БЭМ с CSS переменными</p>
                 </article>
             </section>
         </main>
@@ -53,5 +71,24 @@
             <p>&copy; 2025 Мой сайт-портфолио. Все права защищены.</p>
         </footer>
     </div>
+
+    <script>
+        // Переключение темы
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    </script>
 </body>
 </html>

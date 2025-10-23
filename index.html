@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,68 +8,102 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Изменение: Заменили div на семантические теги -->
     <div class="page-container">
-        <header class="header"> <!-- Было: <div id="header"> -->
+        <header class="header">
             <h1>Мой сайт-портфолио</h1>
+            <button class="header__theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                🌙
+            </button>
         </header>
 
-        <nav class="nav"> <!-- Было: <div id="menu"> -->
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
 
-        <main class="content"> <!-- Было: <div id="content"> -->
+        <main class="content">
             <article class="profile-header">
-                <h2>Информация об авторе</h2>
-                <img class="profile-photo" src="images/photo.png" alt="Фото автора">
-                <h3 class="profile-name">Золотов Максим Денисович</h3>
-                <p class="profile-group">ЭФБО-12-24</p>
+                <h2 class="profile-header__title">Информация об авторе</h2>
+                <img class="profile-header__photo" src="images/photo.png" alt="Фото автора">
+                <h3 class="profile-header__name">Золотов Максим Денисович</h3>
+                <p class="profile-header__group">ЭФБО-12-24</p>
             </article>
 
-            <section class="about-me">
-                <h2>Обо мне</h2>
-                <p>Выходец из Москвы. Люблю прогать. В четыре активно ругался и дрался со сверстниками. Так я становился сильней. Люблю качалку. Воровал.</p>
+            <section class="about">
+                <h2 class="about__title">Обо мне</h2>
+                <p class="about__text">Выходец из Москвы. Люблю прогать. В четыре активно ругался и дрался со сверстниками. Так я становился сильней. Люблю качалку. Воровал.</p>
             </section>
 
-            <section class="skills-container">
-                <h2>Мои навыки</h2>
-                <div class="skills-grid">
-                    <div class="skill-tag">HTML</div>
-                    <div class="skill-tag">CSS</div>
-                    <div class="skill-tag">JavaScript</div>
-                    <div class="skill-tag">Python</div>
-                    <div class="skill-tag">Golang</div>
+            <section class="skills">
+                <h2 class="skills__title">Мои навыки</h2>
+                <div class="skills__grid">
+                    <div class="skills__tag">HTML</div>
+                    <div class="skills__tag">CSS</div>
+                    <div class="skills__tag">JavaScript</div>
+                    <div class="skills__tag">Python</div>
+                    <div class="skills__tag">Golang</div>
                 </div>
             </section>
 
-            <section class="experience-section">
-                <h2 class="section-title">Мой опыт работы</h2>
-                <div class="experience-grid">
-                    <article class="experience-card">
-                        <h3 class="experience-title">Wildberris</h3>
-                        <p class="experience-desc">Работал в пункте выдачи заказов. Сидел, скучал, выдовал.</p>
+            <section class="experience">
+                <h2 class="experience__title">Мой опыт работы</h2>
+                <div class="experience__grid">
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Wildberris</h3>
+                        <p class="experience__card-desc">Работал в пункте выдачи заказов. Сидел, скучал, выдовал.</p>
                     </article>
-                    <article class="experience-card">
-                        <h3 class="experience-title">Улица/street</h3>
-                        <p class="experience-desc">Работал воровством. Воровал, убегал, продавал.</p>
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Улица/street</h3>
+                        <p class="experience__card-desc">Работал воровством. Воровал, убегал, продавал.</p>
                     </article>
-                    <article class="experience-card">
-                        <h3 class="experience-title">Студия</h3>
-                        <p class="experience-desc">Работал рапером. Читал, писал, пел.</p>
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Студия</h3>
+                        <p class="experience__card-desc">Работал рапером. Читал, писал, пел.</p>
                     </article>
                 </div>
             </section>
         </main>
 
-        <footer class="footer"> <!-- Было: <div id="footer"> -->
+        <footer class="footer">
             <p>&copy; 2025 Мой сайт-портфолио. Все права защищены.</p>
         </footer>
     </div>
+
+    <script>
+        // Переключение темы
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+            
+            // Сохраняем выбор пользователя
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Восстанавливаем тему при загрузке
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    </script>
 </body>
 </html>
